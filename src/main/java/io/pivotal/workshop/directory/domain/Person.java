@@ -14,6 +14,7 @@ public class Person {
 	private String id;
 
 	@NotNull
+	//validates that fields are not null
 	private String email;
 	@NotNull
 	private String name;
@@ -107,6 +108,7 @@ public class Person {
 	}
 
 	@Override
+	//override a method to have multiple functionality
 	public String toString() {
 		return "Person [date=" + date + ", id=" + id + ", email=" + email + ", name=" + name + ", password=" + password
 				+ ", birthday=" + birthday + ", created=" + created + ", modified=" + modified + "]";

@@ -12,6 +12,11 @@ import org.springframework.context.annotation.Bean;
 import java.util.stream.Stream;
 
 @SpringBootApplication
+//using @Configuration, @EnableAutoConfiguration and @ComponentScan with their default attributes:
+//@ComponentScan:Configures component scanning directives for use with @Configuration classes
+//@EnableAutoConfiguration: Enable auto-configuration of the Spring Application Context, attempting to guess and
+// configure beans that you are likely to need. Auto-configuration classes are usually applied based on your classpath
+// and what beans you have defined.
 public class DirectoryWebFeaturesApplication {
 	
 	// SOLUTION: Using Application Listeners

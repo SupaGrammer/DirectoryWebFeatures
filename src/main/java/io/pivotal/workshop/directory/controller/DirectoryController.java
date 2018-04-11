@@ -19,16 +19,23 @@ import io.pivotal.workshop.directory.domain.Person;
 import io.pivotal.workshop.directory.repository.DirectoryRepository;
 
 @RestController
+//is a convenience annotation that does nothing more than adding the @Controller and @ResponseBody annotations
+//@ResponseBody:Annotation that indicates a method return value should be bound to the web response body
+//@Controller:This annotation serves as a specialization of @Component,
+// allowing for implementation classes to be autodetected through classpath scanning.
+// It is typically used in combination with annotated handler methods based on the RequestMapping annotation.
 public class DirectoryController {
 
 	private DirectoryRepository repo;
 
 	@Autowired
+	//annotation allows you to skip configurations elsewhere of what to inject and just does it for you.
 	public DirectoryController(DirectoryRepository repo) {
 		this.repo = repo;
 	}
 
 	@RequestMapping("/directory")
+	//maps HTTP requests to handler methods of MVC and REST controllers.
 	public ResponseEntity<Iterable<Person>> findAll() {
 		return ResponseEntity.ok(this.repo.findAll());
 	}
@@ -59,6 +66,7 @@ public class DirectoryController {
 
 	@RequestMapping(value = "/directory/{id}", method = { RequestMethod.DELETE })
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	//This annotation marks a handler method or exception class with the status code() and reason() that should be returned.
 	public void deletePerson(@PathVariable String id) {
 		this.repo.delete(id);
 	}

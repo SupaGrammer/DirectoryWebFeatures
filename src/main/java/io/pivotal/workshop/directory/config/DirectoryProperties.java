@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 //SOLUTION: 
 @ConfigurationProperties(prefix = "directory")
+//allows us to map the resource files such as properties or YAML files to Java Bean object.
 public class DirectoryProperties {
 
 	private String audit = "off";

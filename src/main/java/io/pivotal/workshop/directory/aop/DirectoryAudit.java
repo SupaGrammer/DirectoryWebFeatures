@@ -11,7 +11,14 @@ import org.slf4j.LoggerFactory;
 import io.pivotal.workshop.directory.annotation.Audit;
 import io.pivotal.workshop.directory.config.DirectoryProperties;
 
+/**
+ * @AspectOrientProgramming
+ *
+ */
 @Aspect
+//enables AOP
+//a style of declaring aspects as regular Java classes annotated with Java 5 annotations
+//aspectJ
 public class DirectoryAudit {
 
 	private DirectoryProperties props;
@@ -23,6 +30,9 @@ public class DirectoryAudit {
 	private static Logger log = LoggerFactory.getLogger("[AUDIT]");
 
 	@Around("execution(* *(..)) && @annotation(audit)")
+	//annotated methods run before and after the all methods matching with pointcut expression.
+	//any method that has audit annotation then run this method before and after
+	//kind of like overloading using an annotations
 	public Object audit(ProceedingJoinPoint jp, Audit audit) throws Throwable {
 		// Step. Get the Arguments
 		Object[] args = jp.getArgs();
